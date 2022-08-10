@@ -13,7 +13,7 @@ console.log(radianToDegree(radian));
 // Problem:2  isJavaScriptFile 
 // ফাংশন নেম দিতে হবে isJavaScriptFile । এই ফাংশনে প্যারামিটার হিসেবে নিবে একটি স্ট্রিং(String) যেটি হবে একটি ফাইল নেম (যেমনঃ ‘index.js’)। যদি এটি জাভাস্ক্রিপ্ট ফাইল হয় তোমাকে true রিটার্ন করতে হবে আর যদি না হয় তাহলে false রিটার্ন করতে হবে ।
 function Checkfiles(){
-    var extension = fileName.substring(fileName.lastIndexOf('.') + 1);
+    let extension = fileName.substring(fileName.lastIndexOf('.') + 1);
     if(extension == 'js'){
         return true;
     }
@@ -64,5 +64,21 @@ console.log(publicBusFare(peopleCount));
 
 // Problem 5: isBestFriend
 // তোমাকে একটি ফাংশন লিখতে হবে isBestFriend যেটি প্যরামিটার হিসেবে দুইটি অবজেক্ট নিবে । তোমাকে অবজেক্ট দুইটি নিয়ে দেখতে হবে এরা দুইজন একে অপরের বেস্টফ্রেন্ড কিনা । যদি বেস্ট ফ্রেন্ড হয় তাহলে true রিটার্ন করবে , না হলে false রিটার্ন করবে ।
+// তোমাকে একটি ফাংশন লিখতে হবে isBestFriend যেটি প্যরামিটার হিসেবে দুইটি অবজেক্ট নিবে । তোমাকে অবজেক্ট দুইটি নিয়ে দেখতে হবে এরা দুইজন একে অপরের বেস্টফ্রেন্ড কিনা । যদি বেস্ট ফ্রেন্ড হয় তাহলে true রিটার্ন করবে , না হলে false রিটার্ন করবে ।
 function isBestFriend(){
+    for(let i = 0; i < friends.length; i++){
+        if(friends[i].name == friends[i+1].friend){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
+const friends = [
+    {name: 'tushar', friend: 'jhankar'},
+    {name: 'jhankar', friend: 'tushar'}
+];
+const bestFriend = isBestFriend(friends);
+console.log(bestFriend);
