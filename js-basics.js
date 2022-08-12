@@ -56,7 +56,6 @@ function oilPrice(dieselQuantity, petrolQuantity, octaneQuantity){
         const totalPrice = dieselPrice + petrolPrice + octanePrice;
         return totalPrice;
     }
-
 }
 const totalBill = oilPrice(30, 20, 10);
 console.log(totalBill);
@@ -82,23 +81,44 @@ console.log(publicBusFare(peopleCount));
 
 // Problem 5: isBestFriend
 // তোমাকে একটি ফাংশন লিখতে হবে isBestFriend যেটি প্যরামিটার হিসেবে দুইটি অবজেক্ট নিবে । তোমাকে অবজেক্ট দুইটি নিয়ে দেখতে হবে এরা দুইজন একে অপরের বেস্টফ্রেন্ড কিনা । যদি বেস্ট ফ্রেন্ড হয় তাহলে true রিটার্ন করবে , না হলে false রিটার্ন করবে ।
-function isBestFriend() {
-    if (typeof friends.name !== 'string' ||
-        typeof anothFriends.friend !== 'string' ||
-        typeof anothFriends.name !== 'string' ||
-        typeof friends.friend !== 'string') {
-        return 'Please enter valid data.\n You data type is not a string';
-    }
+// function isBestFriend(){
+//     if (typeof friends.name !== 'string' ||
+//         typeof anotherFriends.friend !== 'string' ||
+//         typeof anotherFriends.name !== 'string' ||
+//         typeof friends.friend !== 'string'){
+//         return 'Please enter valid data.\n You data type is not a string';
+//     }
 
-    else if (friends.name == anothFriends.friend && anothFriends.name == friends.friend) {
+//     else if (friends.name == anotherFriends.friend && anotherFriends.name == friends.friend){
+//         return true;
+//     }
+
+//     else{
+//         return false;
+//     }
+// }
+// let friends = {name: 'tushar', friend: 'jhankar'};
+// let anotherFriends = { name: 'jhankar', friend: 'tushar'};
+// let bestFriends = isBestFriend(friends, anotherFriends);
+// console.log(bestFriends);
+
+
+//---------------------- Alternative Way -------------------------//
+
+function isBestFriend(){
+    let names = Object.values(friends);
+    let friendNames = Object.values(anotherFriends);
+    if(typeof names[0] !== 'string' || typeof names[1] !== 'string' || typeof friendNames[0] !== 'string' || typeof friendNames[1] !== 'string'){
+        return 'Input valid data \nInput string please';
+    }
+    else if(friends.name.toLowerCase() == anotherFriends.friend.toLowerCase() && anotherFriends.name.toLowerCase() == friends.friend.toLowerCase()){
         return true;
     }
-
-    else {
+    else{
         return false;
     }
 }
-let friends = {name: 'tushar', friend: 'jhankar'};
-let anothFriends = { name: 'jhankar', friend: 'tushar'};
-let bestFriends = isBestFriend(friends, anothFriends);
+let friends = {name: 'tushar', friend: 90};
+let anotherFriends = { name: 'jhankar', friend: 'tushar'};
+let bestFriends = isBestFriend(friends, anotherFriends);
 console.log(bestFriends);
